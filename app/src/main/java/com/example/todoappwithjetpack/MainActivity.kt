@@ -35,7 +35,6 @@ class MainActivity : ComponentActivity() {
         setContent {
             ToDoAppWithJetpackTheme {
                 SetStatusBarColor(color = MaterialTheme.colorScheme.primary)
-
                 navController=rememberNavController()
                 setUpNavigation(navController)
 
