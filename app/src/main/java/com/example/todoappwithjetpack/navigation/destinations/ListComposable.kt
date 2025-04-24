@@ -7,10 +7,11 @@ import androidx.navigation.navArgument
 import com.example.todoappwithjetpack.ui.screens.list.ListScreen
 import com.example.todoappwithjetpack.utility.AppConstants.LIST_ARGUMENT_KEY
 import com.example.todoappwithjetpack.utility.AppConstants.LIST_SCREEN
-import com.example.todoappwithjetpack.utility.AppConstants.TASK_ARGUMENT_KEY
+import com.example.todoappwithjetpack.viewmodels.SharedViewModel
 
 fun NavGraphBuilder.listComposables(
-    navigateToTaskScreen: (taskId:Int) -> Unit
+    navigateToTaskScreen: (taskId: Int) -> Unit,
+    viewModel: SharedViewModel
 ) {
     composable(
         LIST_SCREEN,
@@ -19,6 +20,7 @@ fun NavGraphBuilder.listComposables(
             defaultValue = "NO_ACTION"
         })
     ){
-        ListScreen(navigateToTaskScreen = navigateToTaskScreen)
+        ListScreen(navigateToTaskScreen = navigateToTaskScreen,
+            viewModel)
     }
 }
